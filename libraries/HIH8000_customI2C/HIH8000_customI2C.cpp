@@ -1,35 +1,3 @@
-/**********************************************************************
-Obtain measurements from a Honeywell HIH8000 Series sensor connected to an
-Arduino board using I2C protocol (not SPI):
-https://sensing.honeywell.com/sensors/humidity-sensors/HIH8000-series
-
-Uses a custom I2C library from DSSCircuits because Arduino Wire is blocking.
-
-To adjust the internal settings of the
-sensor such as its I2C address and alarms, use the HIH8000CommandI2C library instead:
-https://github.com/kiatAWDSA/HIH8000Command_I2C
-
-Please note that the pins used for I2C communication are different for each
-Arduino board. For Arduino Uno, the SDA and SCL pins are A4 and A5, respectively.
-A list of boards and corresponding pins can be found at:
-https://www.arduino.cc/en/Reference/Wire
-
-
-Copyright 2017 Soon Kiat Lau
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-***********************************************************************/
-
 #include "HIH8000_customI2C.h"
 
 // Instantiate with device address.
