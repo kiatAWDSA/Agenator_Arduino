@@ -1,23 +1,3 @@
-/********************************************************************** 
-  Control humidity and air flow in an enclosed chamber for 
-  beef aging project.
-  
-  
-  Copyright 2018 Soon Kiat Lau
-  
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-***********************************************************************/
-
 #include "HumidityChamber.h"
 
 HumidityChamber::HumidityChamber( uint8_t chamberID,
@@ -544,10 +524,9 @@ void HumidityChamber::checkTiming(unsigned long curTime, bool sendSerial) {
         if (fan1SpeedGotten_) {
           if (fan2SpeedGotten_) {
             if (weightFetched_) {
-              /*
-              // Disabling air velocity measurement because it is unneeded at this stage
+              #ifdef MEASURE_AIRVELOCITY
               if (velocityFetched_) {
-              */
+              #endif // MEASURE_AIRVELOCITY
                 // Control mode operations
                 if (chamberMode_ == 2) {
                   // In control mode, so perform environmental controls
@@ -585,13 +564,14 @@ void HumidityChamber::checkTiming(unsigned long curTime, bool sendSerial) {
                   fanSpeedControlled_ = false;
                   humidityControlled_ = false;
                 }
-              /*
+
+              #ifdef MEASURE_AIRVELOCITY
               }
               else if ((curTime - cycleStartTime_) >= tVelocityFetch_) {
-              fetchVelocity(sendSerial);
-              velocityFetched_ = true;
+                fetchVelocity(sendSerial);
+                velocityFetched_ = true;
               }
-              */
+              #endif // MEASURE_AIRVELOCITY
             }
             else if((curTime - cycleStartTime_) >= tWeightFetch_) {
               fetchWeight(sendSerial);

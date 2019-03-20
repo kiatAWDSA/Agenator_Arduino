@@ -1,6 +1,9 @@
 /********************************************************************** 
-  Control humidity and air flow in an enclosed chamber for 
-  beef aging project.
+  The Agenator is an open source system capable of:
+  a) measuring relative humidity, weight, fan speed, and air velocity
+  b) controlling relative humidity and fan speed.
+
+  The HumidityChamber class represents a single chamber in the Agenator system.
 
   --------------
   IMPORTANT NOTE
@@ -8,25 +11,22 @@
   Devices that utilize the CLK and DAT lines (HX711, FS5, and fan tacho)
   must not be interacted with until switchConnect() has been called. After
   interacting with these devices, switchDisconnect() must be called to
-  disconnect the CLK and DAT lines from this chamber. This routine is
-  unfortunately prone to programmer error. One solution is to integrate
-  these calls into the device class methods, but that will convolute their
-  code...
-  
-  
-  Copyright 2018 Soon Kiat Lau
-  
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+  disconnect the CLK and DAT lines from this chamber.
 
-    http://www.apache.org/licenses/LICENSE-2.0
+  Copyright (C) 2019 Soon Kiat Lau
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ***********************************************************************/
 
 // TODO: The triggering commands to LTC2452 are not working as expected.
@@ -46,6 +46,8 @@
 #include <FS5.h>
 #include <TachoSensor.h>
 #include <PCA9685_customI2C.h>
+
+#define MEASURE_AIRVELOCITY 1
 
 // Uncomment only if calibrating FS5 sensor
 // Do the same for the FS5.h file.
