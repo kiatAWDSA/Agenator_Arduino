@@ -1,10 +1,34 @@
+/***************************************************************************
+  The Agenator is an open source system capable of:
+  a) measuring relative humidity, weight, fan speed, and air velocity
+  b) controlling relative humidity and fan speed.
 
-// IMPORTANT: Due to the current design, each chamberShield MUST be plugged into a valid chamber, because it relies on PCA9685 to disable the
-// RS-422 transceivers. Future iterations should have pull resistors on chamberShield to disable the RS-422 transceivers when no chamber is connected.
+  The program was designed and tested for Arduino Uno. However, due to the large
+  size of the compiled program, the Atmega328P chip cannot accomodate the
+  compiled program size. It is necessary to upgrade the microcontroller chip to
+  Atmega1284P. This could be done, for example, by purchasing the Arduino UU:
+  http://www.firebirduino.com/uu/index.html
+  
+  IMPORTANT: Due to the current design, each chamberShield MUST be plugged
+  into a valid chamber, because it relies on PCA9685 to disable the
+  RS-422 transceivers. Future iterations should have pull resistors on
+  chamberShield to disable the RS-422 transceivers when no chamber is connected.
 
-// For example, "4.20" won't give problems when using atod(), but "4.@0" may cause problems
-// (The @ could be caused by noise). See https://stackoverflow.com/questions/5580975/problem-with-string-conversion-to-number-strtod
-// for a good start
+  Copyright (C) 2019 Soon Kiat Lau
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+***************************************************************************/
 
 // Uncomment only if calibrating FS5 sensor
 // Do the same for the HumidityChamber.h and FS5.h files.
