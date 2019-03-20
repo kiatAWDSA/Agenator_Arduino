@@ -1,35 +1,3 @@
-/*
-  Library for SPI communication over RS-485 lines with Arduino.
-  As of right now, this library only emulates sending clock pulses
-  and receiving the data. Full SPI functionality is not implemented yet.
-
-  Readings:
-  http://www.ti.com/lit/an/slyt441/slyt441.pdf
-  http://www.deathbylogic.com/2014/11/spi-over-rs-485-testing/
-  http://avrbeginners.net/architecture/spi/spi.html
-  https://www.arduino.cc/en/Tutorial/SPIEEPROM
- 
-  Usage:
-  1) Connect the outgoing clock wire to clkPin
-  2) Connect the incoming clock and data wire to the SCK and MOSI pins
-     of the Arduino. Refer to https://www.arduino.cc/en/Reference/SPI
-  3) Call begin() in the setup function. Call receiveByte for a single byte.
-
-  Copyright 2018 Soon Kiat Lau
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-*/
-
 #include "RS485SPI.h"
 
 RS485SPI::RS485SPI()
