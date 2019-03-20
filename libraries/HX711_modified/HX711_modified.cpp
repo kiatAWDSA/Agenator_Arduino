@@ -1,12 +1,3 @@
-/**********************************************************************
-Library for HX711, originally written by bogde, modified by Soon Kiat Lau.
-Modified features:
-- Integrated multiplexer (muxManager_) for switching between devices.
-- chamberID_ is the ID of each device
-- Merged begin() and set_gain() into the constructor to force PD_SCK, DOUT,
-and GAIN to be constants.
-***********************************************************************/
-
 #include "HX711_modified.h"
 
 HX711::HX711(uint8_t gain, uint8_t trimLowSize, uint8_t trimHighSize)
