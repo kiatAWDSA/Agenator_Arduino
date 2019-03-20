@@ -19,6 +19,8 @@ Created by Kasper Skårhøj, August 3rd, 2012.
 Forked by Vitska, June 18th, 2016.
 Forked by NachtRaveVL, July 29th, 2016.
 
+PCA9685-Arduino - Version 1.2.10
+
 Modified by Soon Kiat Lau 2018:
 - use a 3rd-party I2C library (Wayne Truchsess) to avoid the blocking issues
   encountered by the Arduino Wire library.
@@ -35,8 +37,6 @@ Modified by Soon Kiat Lau 2018:
 **  the PCA9685 operates at (Min 20 Hz, Max 1526 Hz).
 ********************************************************************************************
 ********************************************************************************************
-
-PCA9685-Arduino - Version 1.2.10
 */
 
 #ifndef _PCA9685_CUSTOMI2C_h
